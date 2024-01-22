@@ -1,0 +1,136 @@
+@font-face {
+	font-family:"Antique";
+	src: url("ModernAntiqua-Regular.ttf");
+}
+/*ces propriétés importent 2 polices*/
+@font-face {
+	font-family:"Titre";
+	src: url("ArtGreco.ttf");
+}
+
+body {  /*la police du body devient "Antique", le font du body est une image qui le couvre entirement et sa largeur minimal est de 500px*/
+	font-family: Antique, "Microsoft YaHei UI", serif;
+	background-image: url("marbre.jpg");
+	background-size: cover;
+	min-width: 480px
+}
+
+header { /*le header a une bordure arrondie noire, un font dégradé de haut en bas et la taille de sa police est de 150%*/
+	border: 5px solid black;
+	background: linear-gradient(#e2a84e, 20%, #ffce84);
+	text-align: center;
+	border-radius: 20px;
+	font-family: Titre, "Augustus", serif;
+	font-size: 150%;
+}
+
+/*main*/
+main { /*le main a une bordure arrondie noire et un font dégradé du centre au bordure*/
+	max-width: 60em;
+	margin: 1em auto;
+	border: 3px solid black;
+	background: radial-gradient(#ffce84, #e2a84e);
+	border-radius: 10px;
+} 
+
+h2 { /*les gros titre ont une bordure à motif, la police "Titre" et un font maroon*/
+	border: 0.5em solid transparent;
+	border-image: url("motifa.jpg") 40;
+	background-color: #800000;
+	padding: 10px;
+	text-align: center;
+	margin: 0% 10%;
+	font-family: Titre, "Microsoft YaHei UI", serif;
+}
+
+a{ /*les lien ne sont plus soulignés*/
+	text-decoration: none;
+}
+
+p{ /*les textes sont tous en justifié et indentés de 30px*/
+	text-align: justify;
+	text-indent: 30px;
+}
+
+main p:hover a{ /*quand un lien est survolé dans un texte son font devient blanc et une bordure arrondie se forme*/
+	border: 1px solid black;
+	background-color: white;
+	padding: 1px;
+	border-radius: 5px;
+}
+
+/*classe menu*/
+.menu > a, .menu > li { /*les liens et li de la classe menu ont une bordure à motif et un font bleu*/
+	border: 0.5em solid transparent;
+	border-image: url("../skin/motifa.jpg") 40;
+	background-color: #0076a2;
+	color: black;
+	padding: 0.5em 1em;
+}
+
+.menu a:hover, .lien li:hover { /*et au survole le font devient blanc*/
+	background-color: white;
+}
+
+@media (max-width: 730px) { /*si la taille de la page est inférieur à 730px alors :*/
+  .menu a { /*les lien prennent la place de 3 colonnes dans la grille*/
+	grid-column: span 3;
+  }
+}
+
+nav { /*centre les nav*/
+	text-align: center;
+	padding-bottom: 1em;
+}
+
+section {
+	margin: 1em;
+}
+
+code{ /*permet de mettre en maroon gras un mot*/
+	color: #800000;
+	font-weight: bold;
+	font-family: Antique, "Microsoft YaHei UI", serif;
+}   
+
+figure {
+	text-align: center;
+}
+
+img { /*limite la taille des images à maximum 100% et minimun 100px*, créer un bordure arrondie noire autour d'elles*/
+	max-width: 100%;
+	min-width: 100px;
+	border: 2px solid black;
+	border-radius: 10px;
+}
+
+img:hover{ /*au survole d'une image une bordure arrondie noire apparait*/
+	box-shadow: 3px 2px 1px black;
+	border-radius: 20px;
+}
+
+img, a, li { /*permet une transition dousse au propriété suivante*/
+	transition: border-radius 1s,
+				border 1s,
+				box-shadow 0.5s,
+				padding 0.5s,
+				background-color 0.5s,
+				opacity 1s;
+}
+
+
+figcaption { /*met la police en petit dans les figcaptions*/
+	font-size: 0.8em;
+}
+
+/*footer*/
+footer { /*le footer a une bordure arrondie noire et un font dégradé de bas en haut*/
+	border: 5px solid black;
+	background: linear-gradient(#ffce84, 20%, #e2a84e);
+	border-radius: 30px;
+}
+
+footer p { /*aligne le texte à droite avec une marge de 10px*/
+	text-align: right;
+	margin: 10px;
+}
