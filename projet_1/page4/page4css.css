@@ -1,0 +1,213 @@
+#intro .menu {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 10px;
+}
+/*propriété commune*/
+h4, h3 {
+	font-family: Titre, "Augustus", serif;
+	transition: text-shadow 1s;
+	text-align: center
+}
+
+.B, .DB {  /*cette propriété permet de reduir la marge du haut des figures du bas*/
+	margin-top: -40px;
+}
+
+/*section dieux*/
+#dieux h3 { /*met une bordure avec des motifs sur les titres h3*/
+	border: 0.5em solid transparent;
+	border-image: url("../skin/motifa.jpg") 40;
+	padding: 0.5em;
+	margin-right: 50%;
+	background-color: #0076a2;
+}
+
+#dieux img { 
+	width: 90%;
+	height: 70%;
+	background-color: black;
+}
+
+#dieux figure p{ /*fait disparaitre les textes des figures*/
+	display: none;
+	position: absolute;
+	font-size: 90%;
+	text-align: center;
+}
+
+#dieux figure:hover { /*fait grossir une figure à son survole*/
+	transform: scale(1.15,1.15);
+}
+
+#dieux figure:hover img{ /*fait tourné l'image sur elle même au survole*/
+	transform: rotate(360deg);
+}
+
+#dieux figure:hover p{ /*au survole le texte de la figure apparait avec un font de couleur transparent et une double bordure*/
+	display: block;
+	border: 4px double black;
+	padding: 2px;
+	background-color: rgba(226, 166 ,78 , 0.9);
+}
+
+figure:hover h4 { /* au survole de la figure le titre devient blanc et une ombre noire se créer*/
+	text-shadow: 2px 1px 1px black;
+	color: white;
+}
+
+#dieux figure p{ /*pemet au texte d'être au premier plan et donc toujours lisible*/
+	z-index: 1;
+}
+
+#dieux figure , #dieux img{ /*donne au grossissement et à la rotation une transition de 1.5s*/
+	transition: transform 1.5s cubic-bezier(.44,0,.52,1.5),
+				border-radius 1.5s 1s, /*donne une transition de 1s au border-radius et au box-shadow, après la transformation*/
+				box-shadow 1.5s 0.5s;
+}
+
+/*article PremierDieux*/
+#PremierDieux aside { 
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+#PremierDieux aside > p { /*les textes fils directs du aside prennent la place de 3 colonnes dans la grille*/
+	grid-column: span 3;
+	margin-top: -70px; /*cette propriété permet de reduir la marge entre le texte et les figures*/
+}
+
+/*les 6 propriétés suvantes permettent de donner une couleur spécifique au font de la description d'un dieu précis*/
+#poseidon {
+	background: radial-gradient(#3f87a6, #e2a84e);
+}
+
+#zeus {
+	background: radial-gradient(#ffffff, #e2a84e);
+}
+
+#hades {
+	background: radial-gradient(#505050, #e2a84e);
+}
+
+#demeter {
+	background: radial-gradient(#93d313, #e2a84e);
+}
+
+#hera {
+	background: radial-gradient(#844a16, #e2a84e);
+}
+
+#hestia {
+	background: radial-gradient(#ffdddd, #e2a84e);
+}
+
+/*article Olympiens*/
+#Olympiens aside {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+#Olympiens figure p { /*permet de donner une taille aux paragraphes*/
+	width: 120%;
+	right: -15%;
+}
+
+.DB p { 
+	bottom: 250px;
+}
+/*ces 2 propriété servent à positionner les paragraphes des figures du haut et du bas*/
+.DH p {
+	top: 260px;
+}
+
+aside { /*permet de centrer la vidéo youtube*/
+	text-align: center;
+}
+
+iframe { 
+	width: 560px;
+	height: 315px;
+}
+
+/*section creature*/
+#creature ul {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	list-style-type: none;
+}
+
+#creature img {
+	margin: 2px;
+	max-width: 40%
+}
+
+#creature li:nth-of-type(even) { /*ajoute une marge de 10% pour les li en position pair dans la liste*/
+	margin-right: 5%;
+}
+
+#creature li:nth-of-type(odd) { /*ajoute une marge de 5% pour les li en position impair dans la liste*/
+	margin-right: 5%;
+}
+
+#creature li:nth-of-type(even) img{ /*met les images en position flottante à gauche pour les li en position impair dans la liste*/
+	float: left;
+}
+
+#creature li:nth-of-type(odd) img{ /*met les images en position flottante à droite pour les li en position pair dans la liste*/
+	float: right;
+}
+
+#creature li:nth-child(3) { /* le troisième li de la liste prend la place de 2 colonnes dans la grille*/
+	grid-column: span 2;
+}
+
+#creature > h3 { /*espace les mots de 5rem du premier titre de la section créature*/
+	word-spacing: 5rem;
+}
+
+@media (max-width: 800px) { /*si la taille de la page est inférieur à 800px alors :*/
+/*section PremierDieux*/
+  #PremierDieux figure{ /*les figures prennent la place de 3 colonnes dans la grille et leur taille maximale est de 30%*/
+	grid-column: span 3;
+	max-width: 30%;
+	margin: auto
+  }
+  
+  #PremierDieux figure p { /*le texte est recadrer*/
+	width: 130%;
+	right: -15%
+  }
+  
+  #PremierDieux aside > p { /*la marge réapparait*/
+	margin-top: 0px;
+  }
+  
+  .H p { /*les paragraphes des figures du haut remonte pour cacher les images quand ils apparaissent*/
+	top: -50px
+  }
+  
+/*section Olympiens*/
+  #Olympiens aside figure{ /*les figures prennent la place de 2 colonnes dans la grille*/
+	grid-column: span 2;
+  }
+  
+  iframe {
+    height: auto;
+	width: auto;
+  }
+}
+
+@media (min-width: 800px) { /*ces propriétés permet de bien positionner les paragraphes des figures en haut et en bas quand la taille de la page est supérieur à 800px*/
+  #PremierDieux aside > p {
+	margin-top: -7%;
+	margin-bottom: 5%
+  }
+  .H p {
+	top: 350px
+  }
+
+  .B p {
+	bottom: 360px
+  }
+}

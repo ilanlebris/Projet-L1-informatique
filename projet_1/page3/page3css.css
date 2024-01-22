@@ -1,0 +1,42 @@
+h2 {
+	margin-top: 2%;
+}
+
+section { /*dispose les images dans une grille de 3 colonnes*/
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+section p {  /*cache la présence du paragraphe*/
+	display: none;
+	text-align: center;
+}
+
+img { /*fixe la hauteur des images à 350px et la largeur à 100%*/
+	height: 350px;
+	width: 100%;
+}
+
+figure:active p { /*affiche le paragraphe quand l'utilisateur maintient le curseur sur la figure*/
+	display: block;
+}
+
+figure:active img{ /*cache les images quand l'utilisateur maintient le curseur sur la figure*/
+	display: none;
+}
+
+@media (max-width: 850px) {
+  section { /*met les images sur 2 colones quand l'écran rétrécit*/
+	grid-template-columns: 1fr 1fr ;
+  }
+}
+
+@media (max-width: 600px) {
+  section { /*met les images sur 2 colones quand l'écran rétrécit*/
+	grid-template-columns: 1fr;
+  }
+  
+  img { 
+	width: 70%;
+  }
+}

@@ -1,0 +1,63 @@
+/*section intro*/
+#intro .menu { /*met les éléments de la classe lien de la section intro dans une grille de 2 colonnes*/
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 10px;
+}
+
+/*propriété commune*/
+article { /*reduis la marge entre les articles*/
+	margin-top: -20px;
+}
+
+article:nth-of-type(even) aside{ /*met les éléments des asides avec une position impair dans les article, dans une grille de 2 colonnes, où le premier élément fait deux fois la taille du deuxième*/
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+}
+
+article:nth-of-type(odd) aside{ /*met les éléments des asides avec une position pair dans les article, dans une grille de 2 colonnes, où le deuxième élément fait deux fois la taille du premier*/
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+}
+
+article:nth-of-type(even) h3{ /*aligne les titres h3 à droite pou les articles en position impair*/ 
+	text-align: end;
+}
+
+section > h3{ /*centre les h3 fils directs des sections*/
+	text-align: center;
+}
+
+/*section médique*/
+/*les propriétés suivantes mettent des icones avant et après les titres h3 des 2 sections*/
+#médique h3::before {
+	content:url("icone/perse.png") ;
+}
+
+#médique h3::after {
+	content:url("icone/grec.png") ;
+}
+
+/*section péloponnèse*/
+#péloponnèse h3::before {
+	content:url("icone/athenes.png") ;
+}
+
+#péloponnèse h3::after {
+	content:url("icone/sparte.png") ;
+}
+
+#péloponnèse article:last-of-type { /*aligne au centre le dernier article de la section péloponnèse*/
+	text-align: center;
+}
+
+video { /*met la taille de la vidéo à 50% et une double bordure noir*/ 
+	border: 4px double black;
+	width: 50%;
+}
+
+@media (max-width: 730px) { /*si la taille de la page est inférieur à 730px alors :*/
+  aside p, aside figure {
+	grid-column: span 2;
+  }
+}

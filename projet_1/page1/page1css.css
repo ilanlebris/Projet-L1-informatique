@@ -1,0 +1,145 @@
+/*section intro*/ 
+#intro .menu { /*permet de mettre les liens dans une grille de 3 colonnes*/
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 10px;
+	margin: 2%;
+}
+
+#intro img {
+	width: 80%;
+	height: 10%;
+}
+
+#intro figure {
+	margin: 20px;
+}
+
+/*section politique*/
+#politique img {
+	max-width: 150px;
+}
+
+#politique h3 { /*donne une bordure avec des motifs aux titre h3*/
+	border: 0.5em solid transparent;
+	border-image: url("../skin/motifa.jpg") 40;
+	padding: 0.3em;
+	margin-left: 0.5em;
+	margin-right: 50%; /*j'utilise ici un pourcentage pour bien être à la moitié de la section*/
+}
+
+figure h5 { /*cache les titre h5 des figures*/
+	color: white;
+	display: none;
+	padding: 0.5em;
+	border: 2px solid white;
+}
+
+#politique figure:hover h5{ /*fait apparaitre les titres h5 au premier plan*/
+	display: block;
+	transition: 5s;
+	z-index: 1;
+	position: absolute;
+}
+
+.Emblème img:hover, #archi img:active { /*met de l'opacité quand les images de la classe Emblème sont survolés, et quand les images de la section #archi sont activé par l'utilisateur*/
+	opacity: 0.5;
+}
+
+.affichage { /*met tout les éléments des classes affichage en ligne*/
+	display: flex;
+	margin-left: 1em;
+}
+
+/*article sparte*/
+#sparte h3, #sparte h5 {
+	background-color: #9f0000;
+}
+
+/*article athenes*/
+#athenes h3, #athenes h5 {
+	background-color: #009bb7;
+}
+
+audio { /*reduit la taille d'affichage du média audio*/
+	width: 200px;
+	margin-left: 10%;
+	background-color: #c61616;
+	border-radius: 10px;
+}
+
+/*section philo*/
+#philo dt { /*aligne les éléments des dt le la section #philo*/
+	display: flex;
+	margin-left: 2em; 
+}
+
+#philo dl img {
+	max-width: 100px;
+	margin-left: 5%;
+}
+
+blockquote { /*met en italic le contenu des blockquote*/
+	font-style: italic;
+}
+
+blockquote p::before {
+    content: '\201C';
+}
+	/*permettent de mettre des guillemets au début et a la fin de la sitation*/
+blockquote p::after {
+    content: '\201D';
+}
+
+/*section archi*/
+#archi ol { /*change les chiffres en chiffre romain*/
+	list-style-type: upper-roman;
+}
+
+#archi ul { /*met les éléments de la liste dans une grille de 2 colonnes et change les puces en lettres grec*/
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	list-style-type: lower-greek;
+}
+
+#archi img { /*donne une taille de 150px et met les images en position flottantes à droite*/
+	margin: 2px;
+	width: 150px;
+	float: right;
+}
+
+#archi img:hover { /*change la bordure noire en rouge au survole*/
+	border: 2px solid #a90000;
+}
+
+#archi li > p { /*met la police plus grande pour les textes fils direct des li du ol pour mieux séparer les parties de la section*/
+	font-size: 110%;
+}
+
+@media (max-width: 810px) { /*si la taille de la page est inférieur à 810px alors :*/
+  #archi ul p { /*les textes des ul disparaissent*/
+	display: none;
+  }
+  
+  #archi ul li:hover p{ /*au survole des li des ul les textes apparaissent en position absolute avec une taille de 300px maximum avec un fond de couleur un peu transparent*/
+	display: block;
+	position: absolute;
+	border: 1px solid black;
+	background-color: rgba(226, 166 ,78 , 0.9);
+	padding: 0.5em;
+	max-width: 300px;
+	margin: 50px;
+	transition: 1s;
+	margin: auto
+  }
+  
+  .affichage { /*les éléments des classes affichage se mettent dans une grille de 2 colonnes*/
+	display: grid;
+	grid-template-columns: 1fr 1fr; 
+  }
+  
+  .affichage p{ /*les textes des classes affichage prennent la place de 2 colonnes dans la grille*/
+	grid-column: span 2; 
+  }
+}
+
